@@ -94,7 +94,7 @@ a{color:var(--gold-ink)}
 .verdict .big em{font-style:italic;color:var(--rose-ink)}
 .verdict .apoyo{margin-top:16px;color:var(--ink-soft);max-width:62ch}
 .verdict .apoyo b{color:var(--ink)}
-.regla{margin-top:22px;display:inline-flex;align-items:baseline;gap:10px;background:var(--gold-soft);border-radius:10px;padding:12px 18px;font-weight:700;color:#6E500E}
+.regla{margin-top:22px;display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;background:var(--gold-soft);border-radius:10px;padding:12px 18px;font-weight:700;color:#6E500E}
 .regla .mono{font-family:var(--mono);font-size:14px;letter-spacing:.02em}
 
 /* Chooser rows */
@@ -147,26 +147,32 @@ a{color:var(--gold-ink)}
 
 /* Price band */
 .banda{margin-top:clamp(36px,6vw,56px)}
-.banda-bar{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--line-strong);margin-top:38px}
-.banda-seg{padding:14px 10px 12px;font-size:12px;line-height:1.35;position:relative;min-width:0}
+.banda-marks{position:relative;height:30px}
+.banda-bar{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--line-strong);margin-top:2px}
+.banda-seg{padding:14px 10px 12px;font-size:12px;line-height:1.35;min-width:0}
 .banda-seg b{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:-.02em;margin-bottom:3px;white-space:nowrap}
 .seg-riesgo{flex:1.1;background:var(--bad-bg);color:#7C352E}
 .seg-eco{flex:1.3;background:var(--good-bg);color:#2E5C3C}
 .seg-justa{flex:1.6;background:#DCE4C6;color:#44552F}
 .seg-top{flex:1.3;background:var(--gold-soft);color:#6E500E}
-.seg-marca{flex:1.2;background:var(--paper-2);color:var(--faded)}
-.banda-marker{position:absolute;top:-34px;left:38%;font-size:12px;font-weight:700;color:var(--rose-ink);white-space:nowrap}
-.banda-marker::after{content:"";position:absolute;left:10px;top:20px;border:7px solid transparent;border-top-color:var(--rose-ink)}
+.seg-marca{flex:1.2;background:var(--paper-2);color:#57634F}
+.banda-marker{position:absolute;top:0;right:53.3%;font-size:12px;font-weight:700;color:var(--rose-ink);white-space:nowrap}
+.banda-marker::after{content:"";position:absolute;right:5px;top:19px;width:1.5px;height:11px;background:var(--rose-ink)}
 
 /* Table */
-.tabla-scroll{overflow-x:auto;border:1px solid var(--line-strong);border-radius:12px;background:var(--card);margin-top:clamp(36px,6vw,56px)}
+.tabla-titulo{margin-top:clamp(36px,6vw,56px);font-size:clamp(19px,2.8vw,24px)}
+.tabla-scroll{overflow-x:auto;border:1px solid var(--line-strong);border-radius:12px;margin-top:14px;background:
+  linear-gradient(270deg,var(--card) 30%,rgba(251,251,241,0)) 100% 0/48px 100% no-repeat local,
+  radial-gradient(farthest-side at 100% 50%,rgba(30,42,32,.25),transparent) 100% 0/16px 100% no-repeat,
+  var(--card)}
 table{border-collapse:collapse;width:100%;min-width:1020px;font-size:14px}
-caption{text-align:left;font-family:var(--serif);font-weight:650;font-size:19px;padding:18px 20px 6px}
 thead th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--faded);padding:14px 14px 10px;border-bottom:2px solid var(--line-strong);white-space:nowrap}
 tbody td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:nth-child(2n) td{background:rgba(236,237,219,.5)}
-td.v-nom{font-weight:700;color:var(--ink);white-space:nowrap}
+thead th:first-child,tbody td:first-child{position:sticky;left:0;z-index:2;background:var(--card);border-right:1px solid var(--line)}
+tbody tr:nth-child(2n) td:first-child{background:#F3F4E5}
+td.v-nom{font-weight:700;color:var(--ink);min-width:150px;max-width:200px}
 td.v-precio{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
 .vchip{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:3px 10px;border-radius:999px;white-space:nowrap}
 
@@ -200,17 +206,17 @@ td.v-precio{font-family:var(--mono);font-variant-numeric:tabular-nums;white-spac
 
 /* ============ Timeline ============ */
 .dia{margin-top:10px}
-.dia-bar{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--line-strong);margin-top:46px;position:relative}
+.dia-bar{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--line-strong);margin-top:2px;position:relative}
 .dia-seg{padding:13px 10px 11px;font-size:12px;line-height:1.35;min-width:0}
 .dia-seg b{display:block;font-family:var(--mono);font-size:12px;margin-bottom:3px;white-space:nowrap}
 .d-noche{flex:.7;background:var(--pine-2);color:var(--hero-muted)}
 .d-am{flex:1.4;background:var(--gold-soft);color:#6E500E}
-.d-dura{flex:2.4;background:var(--paper-2);color:var(--faded)}
+.d-dura{flex:2.4;background:var(--paper-2);color:#57634F}
 .d-pm{flex:1.4;background:var(--gold-soft);color:#6E500E}
 .d-ocaso{flex:.7;background:var(--pine-2);color:var(--hero-muted)}
-.dia-marks{position:relative;height:0}
-.dia-mark{position:absolute;top:2px;font-size:12px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
-.dia-mark::after{content:"";position:absolute;left:4px;top:20px;width:1.5px;height:22px;background:var(--line-strong)}
+.dia-marks{position:relative;height:30px}
+.dia-mark{position:absolute;top:0;font-size:12px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+.dia-mark::after{content:"";position:absolute;left:4px;top:19px;width:1.5px;height:11px;background:var(--line-strong)}
 .reco-hora{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:26px}
 .reco-hora .rh{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
 .reco-hora .rh-h{font-family:var(--mono);font-size:17px;color:var(--gold-ink);margin-bottom:6px}
@@ -290,8 +296,7 @@ footer a{color:#AEB89C}
   .chooser-row{grid-template-columns:1fr;gap:6px;padding-block:16px}
   .chooser-go{justify-self:start}
   .banda-bar,.dia-bar{flex-direction:column;margin-top:14px}
-  .banda-marker{display:none}
-  .dia-marks{display:none}
+  .banda-marks,.dia-marks{display:none}
   .banda-seg,.dia-seg{padding:12px 14px}
   .mecanica li{padding-right:0}
   .plan li{grid-template-columns:40px 1fr}
@@ -549,18 +554,19 @@ footer a{color:#AEB89C}
     <div class="banda">
       <h3 class="tier-title">¿Cuánto es pagar bien?</h3>
       <p class="tier-sub">La banda de precios real del mercado para una propuesta en Central Park, según lo que pagan las parejas y lo que cobran los profesionales verificados.</p>
+      <div class="banda-marks"><span class="banda-marker">la cotización de $410 cae aquí ▾</span></div>
       <div class="banda-bar">
         <div class="banda-seg seg-riesgo"><b>&lt;$150</b>Aficionados o carnada. Riesgo alto para un momento irrepetible.</div>
         <div class="banda-seg seg-eco"><b>$250–300</b>El punto dulce económico: pros con reseñas y pago protegido.</div>
-        <div class="banda-seg seg-justa"><b>$350–500</b>La banda justa según Reddit: edición y derechos incluidos.<span class="banda-marker">▾ aquí cae la cotización de $410</span></div>
+        <div class="banda-seg seg-justa"><b>$350–500</b>La banda justa según Reddit: edición y derechos incluidos.</div>
         <div class="banda-seg seg-top"><b>$500–650</b>Especialista top con hora completa y ~100 fotos.</div>
         <div class="banda-seg seg-marca"><b>$700+</b>Pagas marca o planificación con decorado, no mejor fotografía.</div>
       </div>
     </div>
 
-    <div class="tabla-scroll" tabindex="0" role="region" aria-label="Tabla comparativa de fotógrafos">
+    <h3 class="tier-title tabla-titulo" id="tabla-comparativa">Todas las opciones verificadas, lado a lado</h3>
+    <div class="tabla-scroll" tabindex="0" role="region" aria-labelledby="tabla-comparativa">
       <table>
-        <caption>Todas las opciones verificadas, lado a lado</caption>
         <thead>
           <tr><th>Opción</th><th>Precio</th><th>Tiempo</th><th>Fotos</th><th>Entrega</th><th>Pago protegido</th><th>Reputación</th><th>Veredicto</th></tr>
         </thead>
@@ -623,11 +629,6 @@ footer a{color:#AEB89C}
             <line x1="74" y1="300" x2="386" y2="300"/>
             <line x1="74" y1="120" x2="386" y2="120"/>
           </g>
-          <g font-family="Karla,sans-serif" font-size="10" fill="#A5AB8E" font-weight="700">
-            <text x="80" y="435">65 ST</text>
-            <text x="80" y="295">72 ST</text>
-            <text x="80" y="115">79 ST</text>
-          </g>
           <!-- The Pond -->
           <path d="M262 560 q-26 -14 -18 -40 q8 -24 36 -28 q30 -4 44 14 q16 20 4 40 q-14 22 -66 14 z" fill="#AECAC6"/>
           <text x="306" y="536" font-family="Karla,sans-serif" font-size="10.5" fill="#5F7D78" font-style="italic">The Pond</text>
@@ -646,7 +647,7 @@ footer a{color:#AEB89C}
           <line x1="222" y1="272" x2="252" y2="258" stroke="#6E7A5E" stroke-width="4"/>
           <!-- Boathouse -->
           <rect x="316" y="262" width="18" height="12" rx="2" fill="#8A7B4E"/>
-          <text x="342" y="272" font-family="Karla,sans-serif" font-size="10" fill="#77825B">Boathouse · botes</text>
+          <text x="326" y="288" text-anchor="end" font-family="Karla,sans-serif" font-size="10" fill="#6B7650">Boathouse · botes</text>
           <!-- Bethesda terrace -->
           <rect x="252" y="300" width="26" height="12" rx="2" fill="#C8B98A"/>
           <circle cx="265" cy="322" r="5" fill="#AECAC6" stroke="#8A927B"/>
@@ -656,6 +657,12 @@ footer a{color:#AEB89C}
             <ellipse cx="270" cy="164" rx="36" ry="20"/>
           </g>
           <text x="238" y="174" font-family="Karla,sans-serif" font-size="10" fill="#77825B" font-style="italic">The Ramble</text>
+          <!-- etiquetas de calles, sobre las formas -->
+          <g font-family="Karla,sans-serif" font-size="10" fill="#8A927B" font-weight="700">
+            <text x="80" y="435">65 ST</text>
+            <text x="80" y="295">72 ST</text>
+            <text x="80" y="115">79 ST</text>
+          </g>
           <!-- Pines -->
           <g font-family="'Spline Sans Mono',monospace" font-size="13" font-weight="500">
             <g><circle cx="297" cy="474" r="13" fill="#22331F" stroke="#C9962E" stroke-width="1.5"/><text x="297" y="479" text-anchor="middle" fill="#E9C878">1</text></g>
